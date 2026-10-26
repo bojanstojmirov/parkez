@@ -22,6 +22,8 @@ Phase 1: development environment setup.
 - Payment (for now): SMS only. Card payment (like Parking.MK) is parked for later.
 - SMS design: swappable `SmsSender` with mock, compose-screen and direct-send versions.
 - A "sent" SMS is never treated as a paid or confirmed session.
+- SMS Plan A (preferred): direct background sending via SEND_SMS, subject to Google Play approval. Plan B: compose-screen fallback. Not planned: split sender/receiver apps, server-side SMS gateways (operator requires the user's own Macedonian number).
+- Reddit thread evidence (unofficial): one app approved under a different exception, one (MIT App Inventor Companion) rejected. Approval is not guaranteed.
 
 ## Environment notes
 - Windows PowerShell blocked npm.ps1 ("running scripts is disabled"). Fixed with:
