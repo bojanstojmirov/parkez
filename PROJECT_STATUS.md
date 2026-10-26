@@ -3,7 +3,7 @@
 _Last updated: 2026-10-18_
 
 ## Current phase
-Phase 2: prototype foundations (project structure, SmsSender interface, session state machine).
+Phase 2: prototype foundations. Test runner ready. Next: session state machine with tests.
 
 ## Completed
 - [x] Research: EasyPark, Skopje SMS parking, Play Store SMS policy
@@ -14,6 +14,8 @@ Phase 2: prototype foundations (project structure, SmsSender interface, session 
 - [x] Android Studio installed; ANDROID_HOME and adb verified (platform-tools 37.0.1)
 - [x] First commit pushed (README.md and PROJECT_STATUS.md)
 - [x] Empty Expo app (in `/mobile`) running on real phone via Expo Go
+- [x] Project reset to blank Expo Router app (src/app); demo code removed
+- [x] Jest (jest-expo) installed; sanity test and tsc type check pass
 
 ## Decisions
 - Project name: Parkez.
@@ -36,6 +38,8 @@ Phase 2: prototype foundations (project structure, SmsSender interface, session 
 - Which operators and cities beyond Skopje use SMS parking.
 - Whether Expo's current SDK works cleanly with Node 24 (check when creating the app).
 - Competitor SMS Parking uses the SMS permission (not Accessibility), but how it got Play approval is unknown.
+- npm audit (--omit=dev) reports 5 high issues (node-forge, zod) inside Expo CLI tooling. Not forced-fixed (the suggested fix downgrades Expo to 44). Accepted for now; re-check before release.
+- npm blocked install scripts for `unrs-resolver` and `@parcel/watcher` (allowScripts warning). Not approved; revisit only if tooling breaks.
 
 ## Next steps
 1. Make the first commit and push it.
