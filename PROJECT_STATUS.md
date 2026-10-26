@@ -16,6 +16,9 @@ Phase 2: prototype foundations. Test runner ready. Next: session state machine w
 - [x] Empty Expo app (in `/mobile`) running on real phone via Expo Go
 - [x] Project reset to blank Expo Router app (src/app); demo code removed
 - [x] Jest (jest-expo) installed; sanity test and tsc type check pass
+- [x] Domain: operator profile types and SMS message builder (operators.ts) with tests
+- [x] Domain: session state machine (session.ts) with tests: sms_sent never paid, no skipped states, time from confirmed end, duplicate guard
+- [x] SmsSender interface, MockSmsSender, ReplyParser interface (stub parser), SessionService (in-memory) with tests: ambiguous send failures treated as possibly sent, double-tap protection, stop flow
 
 ## Decisions
 - Project name: Parkez.
@@ -40,8 +43,12 @@ Phase 2: prototype foundations. Test runner ready. Next: session state machine w
 - Competitor SMS Parking uses the SMS permission (not Accessibility), but how it got Play approval is unknown.
 - npm audit (--omit=dev) reports 5 high issues (node-forge, zod) inside Expo CLI tooling. Not forced-fixed (the suggested fix downgrades Expo to 44). Accepted for now; re-check before release.
 - npm blocked install scripts for `unrs-resolver` and `@parcel/watcher` (allowScripts warning). Not approved; revisit only if tooling breaks.
+- Skopje has two operators with different models: Градски паркинг (144 144, zone+plate, stop with "S", per-zone max) and ПОЦ (14 14 14, zone+plate+hours, extendable). Source data is partly 2017 and conflicting; verify numbers, formats, prices and limits before coding as constants. Zones will be editable data with a last-verified date.
+- Confirmation SMS reply texts are unknown (needed for parsing).
+- Macedonian SIM required; check SIM before sending.
+- CONFIRMATION_TIMEOUT_MS = 3 min is an assumption; tune after real tests.
+- Reply parser is a stub: real confirmation reply formats are unknown. Replies are matched to sessions by id for now; real matching (operator number, plate) needs real reply texts.
 
 ## Next steps
-1. Make the first commit and push it.
-2. Install Android Studio and create an emulator.
-3. Create an empty Expo app and run it.
+1. First screen on phone with the mock sender. 
+2. Android SMS spike.
