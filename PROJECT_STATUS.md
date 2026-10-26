@@ -3,7 +3,7 @@
 _Last updated: 2026-10-18_
 
 ## Current phase
-Phase 1: development environment setup.
+Phase 2: prototype foundations (project structure, SmsSender interface, session state machine).
 
 ## Completed
 - [x] Research: EasyPark, Skopje SMS parking, Play Store SMS policy
@@ -11,9 +11,9 @@ Phase 1: development environment setup.
 - [x] Git installed (2.37.3, old but working; update is optional)
 - [x] Node.js upgraded to v24.22.0 (was v18.15.0, too old); npm 11.19.1 verified
 - [x] VS Code installed
-- [ ] First commit pushed (README.md and PROJECT_STATUS.md)
-- [ ] Android Studio and emulator
-- [ ] Empty Expo app running on emulator and real phone
+- [x] Android Studio installed; ANDROID_HOME and adb verified (platform-tools 37.0.1)
+- [x] First commit pushed (README.md and PROJECT_STATUS.md)
+- [x] Empty Expo app (in `/mobile`) running on real phone via Expo Go
 
 ## Decisions
 - Project name: Parkez.
@@ -28,6 +28,7 @@ Phase 1: development environment setup.
 ## Environment notes
 - Windows PowerShell blocked npm.ps1 ("running scripts is disabled"). Fixed with:
   `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`
+- Android emulator (Pixel) was too slow on this PC. Primary testing will be on a real Android phone.
 
 ## Known unknowns (to verify)
 - Whether Google Play will approve direct SEND_SMS for our app.
