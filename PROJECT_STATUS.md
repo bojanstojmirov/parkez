@@ -23,6 +23,7 @@ Phase 2: prototype foundations. Test runner ready. Next: session state machine w
 - [x] JDK 17 (Microsoft OpenJDK) installed, JAVA_HOME set; phone detected by adb (USB debugging on)
 - [x] Android emulator and system images removed to save ~9 GB (testing on real phone)
 - [x] expo-dev-client installed
+- [x] Stage A: development build builds and runs on real phone (from C:\pk)
 
 ## Decisions
 - Project name: Parkez.
