@@ -20,6 +20,9 @@ Phase 2: prototype foundations. Test runner ready. Next: session state machine w
 - [x] Domain: session state machine (session.ts) with tests: sms_sent never paid, no skipped states, time from confirmed end, duplicate guard
 - [x] SmsSender interface, MockSmsSender, ReplyParser interface (stub parser), SessionService (in-memory) with tests: ambiguous send failures treated as possibly sent, double-tap protection, stop flow
 - [x] Self-send SMS test on Slovenian number: delivered in ~1 second (enables a one-phone test loop)
+- [x] JDK 17 (Microsoft OpenJDK) installed, JAVA_HOME set; phone detected by adb (USB debugging on)
+- [x] Android emulator and system images removed to save ~9 GB (testing on real phone)
+- [x] expo-dev-client installed
 
 ## Decisions
 - Project name: Parkez.
@@ -38,6 +41,7 @@ Phase 2: prototype foundations. Test runner ready. Next: session state machine w
   `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`
 - Android emulator (Pixel) was too slow on this PC. Primary testing will be on a real Android phone.
 - Screens must render from React state (a snapshot copied from services), never directly from global service objects. React Compiler caches values it can't see changing; reading `demo.service` directly caused frozen UI.
+- First Android dev build failed: Windows 260-character path limit (react-native-reanimated CMake/ninja mkdir error). Fix: work from a short path (C:\pk).
 
 ## Known unknowns (to verify)
 - Whether Google Play will approve direct SEND_SMS for our app.
