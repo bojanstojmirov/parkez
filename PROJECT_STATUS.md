@@ -34,6 +34,7 @@ Phase 2: prototype foundations. Test runner ready. Next: session state machine w
 - Windows PowerShell blocked npm.ps1 ("running scripts is disabled"). Fixed with:
   `Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned`
 - Android emulator (Pixel) was too slow on this PC. Primary testing will be on a real Android phone.
+- Screens must render from React state (a snapshot copied from services), never directly from global service objects. React Compiler caches values it can't see changing; reading `demo.service` directly caused frozen UI.
 
 ## Known unknowns (to verify)
 - Whether Google Play will approve direct SEND_SMS for our app.
