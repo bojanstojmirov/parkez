@@ -19,6 +19,7 @@ Phase 2: prototype foundations. Test runner ready. Next: session state machine w
 - [x] Domain: operator profile types and SMS message builder (operators.ts) with tests
 - [x] Domain: session state machine (session.ts) with tests: sms_sent never paid, no skipped states, time from confirmed end, duplicate guard
 - [x] SmsSender interface, MockSmsSender, ReplyParser interface (stub parser), SessionService (in-memory) with tests: ambiguous send failures treated as possibly sent, double-tap protection, stop flow
+- [x] Self-send SMS test on Slovenian number: delivered in ~1 second (enables a one-phone test loop)
 
 ## Decisions
 - Project name: Parkez.
@@ -29,6 +30,8 @@ Phase 2: prototype foundations. Test runner ready. Next: session state machine w
 - A "sent" SMS is never treated as a paid or confirmed session.
 - SMS Plan A (preferred): direct background sending via SEND_SMS, subject to Google Play approval. Plan B: compose-screen fallback. Not planned: split sender/receiver apps, server-side SMS gateways (operator requires the user's own Macedonian number).
 - Reddit thread evidence (unofficial): one app approved under a different exception, one (MIT App Inventor Companion) rejected. Approval is not guaranteed.
+- SMS spike plan: Stage A = development build of current app via USB; Stage B = native SMS module. Debug build only sends to an allow-list (own number). No real operator numbers during development.
+- Real operator reply formats cannot be tested from Slovenia; need screenshots from someone in Skopje, operator documentation, or a supervised field test with a Macedonian SIM.
 
 ## Environment notes
 - Windows PowerShell blocked npm.ps1 ("running scripts is disabled"). Fixed with:
